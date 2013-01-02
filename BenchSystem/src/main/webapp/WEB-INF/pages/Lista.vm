@@ -1,0 +1,9 @@
+Nombre:
+<select name="select">
+#foreach($dev in $developmentCenter)
+  <option value=$dev.nombre>${dev.nombre}</option> 
+#end
+</select>
+
+$developmentCenter
+
