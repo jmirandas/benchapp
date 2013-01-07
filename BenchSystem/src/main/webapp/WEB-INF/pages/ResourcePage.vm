@@ -1,0 +1,104 @@
+<link href="/BenchSystem/resource/DataTable/DataTableStyle.css" rel="stylesheet">
+<script type="text/javascript" lang="javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
+<script class="jsbin" src="http://datatables.net/download/build/jquery.dataTables.nightly.js"></script>
+<body id="dt_example">
+<div id="container">
+<script type="text/javascript">
+			$(document).ready(function() {
+				$('#example').dataTable();
+			});
+</script>
+<form action="search" method="POST" class="form-horizontal">
+<br>
+<br>
+<div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">Disponibility Date</label>
+          <div class="controls">
+            <input type="date" class="input-xlarge">
+          </div>
+        </div>
+<br>
+    <div class="control-group">
+
+          <!-- Select Basic -->
+          <label class="control-label">Development Center</label>
+          <div class="controls">
+<select name="DevelopmentCenter" class="input-xlarge">
+#foreach($dev in ${resourceForm.getDevelopmnetCenter()})
+  <option value='$dev.getNombre()'>${dev.getNombre()}</option> 
+#end
+</select>
+          </div>
+
+        </div>
+<br>
+    <div class="control-group">
+
+          <!-- Select Basic -->
+          <label class="control-label">Area</label>
+          <div class="controls">
+<select name="Area" class="input-xlarge">
+#foreach($area in ${resourceForm.getArea()})
+  <option value='$area.getPositionId()'>${area.getName()}</option> 
+#end
+</select>
+          </div>
+
+        </div>
+<br>
+    <div class="control-group">
+          <!-- Button -->
+          <div class="controls">
+              <input type="submit" value="Search" class="btn btn-success">
+          </div>
+        </div>
+<legend></legend>
+<fieldset>	
+<table cellspacing="0" border="1" class="table table-hover" id="example">
+	<thead style="background:#4b5bf6">
+		<tr >
+			<td >
+				Id
+            </td>
+			<td >
+				Name
+            </td>
+            <td >
+				Location
+            </td>
+            <td >
+				Position
+            </td>
+        </tr>
+    </thead>
+	<tbody >
+		#foreach($resource in $resources)
+			<tr >
+			<td >
+				$resource.getResourceId()
+            </td>
+			<td >
+				$resource.getName()
+            </td>
+            <td >
+				$resource.getLocation()
+            </td>
+            <td >
+				$resource.getIdPosition()
+            </td>
+        </tr>      
+        
+		#end
+    </tbody>
+	<tfoot >
+
+    </tfoot>
+</table>
+</fieldset>
+</div>
+</table>
+</form>
+

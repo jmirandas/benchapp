@@ -6,49 +6,50 @@ package com.benchapp.models;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Entity;
 
 /**
  * @author eduardo.bran
  * 
  */
-@Table(name = "")
-public class DevelopmentCenter {
+@Entity
+@Table(name = "CentroDesarrollo")
+public class DevelopmentCenter implements Model{
 
 	@Id
-	@Column(name = "")
-	private int developCenterId;
+	@Column(name = "nombre")
+	private String nombre;
 
-	@Column(name = "")
-	private String description;
+	@Column(name = "compania")
+	private String compania;
 
 	/**
-	 * @return the developCenterId
+	 * @return the nombre
 	 */
-	public int getDevelopCenterId() {
-		return developCenterId;
+	public String getNombre() {
+		return nombre;
 	}
 
 	/**
-	 * @param developCenterId
-	 *            the developCenterId to set
+	 * @param nombre the nombre to set
 	 */
-	public void setDevelopCenterId(int developCenterId) {
-		this.developCenterId = developCenterId;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	/**
-	 * @return the description
+	 * @return the compania
 	 */
-	public String getDescription() {
-		return description;
+	public String getCompania() {
+		return compania;
 	}
 
 	/**
-	 * @param description
-	 *            the description to set
+	 * @param compania the compania to set
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setCompania(String compania) {
+		this.compania = compania;
 	}
+
 
 }
