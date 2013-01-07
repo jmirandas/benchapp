@@ -7,53 +7,67 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Entity;
 
 /**
  * @author eduardo.bran
  * 
  */
 
-@Table(name = "ParametrosGeneral")
-public class Area {
+@Entity
+@Table(name = "Puesto")
+public class Area implements Model{
 
 	@Id
-	@Column(name = "idParametrosGeneral")
-	private int areaId;
+	@Column(name = "idPuesto")
+	private int positionId;
 
 	@Column(name = "nombre")
-	private String description;
-
-	@OneToMany()
-	private Rol rol;
+	private String name;
+	
+	@Column(name = "estado")
+	private String status;
 
 	/**
-	 * @return the areaId
+	 * @return the positionId
 	 */
-	public int getAreaId() {
-		return areaId;
+	public int getPositionId() {
+		return positionId;
 	}
 
 	/**
-	 * @param areaId
-	 *            the areaId to set
+	 * @param positionId the positionId to set
 	 */
-	public void setAreaId(int areaId) {
-		this.areaId = areaId;
+	public void setPositionId(int positionId) {
+		this.positionId = positionId;
 	}
 
 	/**
-	 * @return the description
+	 * @return the name
 	 */
-	public String getDescription() {
-		return description;
+	public String getName() {
+		return name;
 	}
 
 	/**
-	 * @param description
-	 *            the description to set
+	 * @param name the name to set
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

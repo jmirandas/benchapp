@@ -11,14 +11,14 @@ import javax.persistence.Table;
  * @author eduardo.bran
  * 
  */
-@Table(name = "")
+@Table(name = "Cliente")
 public class Client {
 
 	@Id
-	@Column(name = "")
+	@Column(name = "idCliente")
 	private int clientId;
 
-	@Column(name = "")
+	@Column(name = "nombre")
 	private String name;
 
 	/**

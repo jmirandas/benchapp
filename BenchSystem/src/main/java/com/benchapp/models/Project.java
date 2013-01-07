@@ -3,25 +3,36 @@
  */
 package com.benchapp.models;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Entity;
 
 /**
  * @author eduardo.bran
  * 
  */
-@Table(name = "")
-public class Project {
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "Proyecto")
+public class Project implements Serializable{
 
 	@Id
-	@Column(name = "")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "idProyecto")
 	private int projectId;
 
-	@Column(name = "")
+	@Column(name = "nombre")
 	private String name;
 
-	@Column(name = "")
+	@OneToOne(cascade = CascadeType.PERSIST)
 	private Client client;
 
 	@Column(name = "")
