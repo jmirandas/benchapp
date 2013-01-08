@@ -48,9 +48,17 @@ public class ResourceController {
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String Search(@RequestParam("DevelopmentCenter") String dc, @RequestParam("Area") int area, ModelMap model) {
+		System.out.println(dc);
 		model.addAttribute("resourceForm",new ResourceView(new Date(),developmentCenterDAO.AvanticaDevelopmentCenter(), areaDAO.getAll("Area")));
 		model.addAttribute("resources",resourceDAO.Search(dc,area));
 		return "ResourcePage";
+	}
+	
+	@RequestMapping(value = "/s", method = RequestMethod.GET)
+	public String Search(ModelMap model) {
+		model.addAttribute("resourceForm",new ResourceView(new Date(),developmentCenterDAO.AvanticaDevelopmentCenter(), areaDAO.getAll("Area")));
+		model.addAttribute("resources",resourceDAO.GetResourcesOnTheBench());
+		return "purebaSP";
 	}
 	
 

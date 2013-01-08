@@ -15,4 +15,5 @@ import com.benchapp.models.Resources;
  */
 public interface ResourceDAO  extends GenericDAO<Resources>{
 	public List<Resources> Search(String dc, int area) throws HibernateException;
+	public List<Resources> GetResourcesOnTheBench() throws HibernateException;
 }

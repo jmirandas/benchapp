@@ -13,14 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Entity;
-
 /**
  * @author eduardo.bran
  * 
  */
 @SuppressWarnings("serial")
-@Entity
 @Table(name = "Proyecto")
 public class Project implements Serializable{
 

@@ -3,50 +3,52 @@
  */
 package com.benchapp.models;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import javax.persistence.Entity;
 
 /**
  * @author eduardo.bran
  * 
  */
-
-@SuppressWarnings("serial")
-@Entity
-@Table(name = "Habilidad")
-public class Skill implements Serializable,Model{
+@Table(name = "")
+public class Skill {
 
 	@Id
-	@Column(name = "idHabilidad")
-	private int Idskill;
+	@Column(name = "")
+	private int skillId;
 
-	@Column(name = "nombre")
+	@Column(name = "")
 	private String name;
 
-//	@OneToMany(fetch = FetchType.EAGER)
-//	private List<ResourceBySkill> resource = new ArrayList<ResourceBySkill>();
-	
-//	@JoinTable(name ="ColaboradorXHabilidad", joinColumns = { @JoinColumn(name = "idColaborador")},
-//			inverseJoinColumns = {@JoinColumn(name = "idHabilidad")})
-//	List<Resources> resource = new LinkedList<Resources>();
+	@ManyToOne
+	private Category category;
+
+	@Column(name = "")
+	private int skillLevel;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	private List<Resources> resource = new ArrayList<Resources>();
 
 	/**
 	 * @return the skillId
 	 */
 	public int getSkillId() {
-		return Idskill;
+		return skillId;
 	}
+
 	/**
 	 * @param skillId
 	 *            the skillId to set
 	 */
 	public void setSkillId(int skillId) {
-		this.Idskill = skillId;
+		this.skillId = skillId;
 	}
 
 	/**
@@ -63,4 +65,35 @@ public class Skill implements Serializable,Model{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	/**
+	 * @return the category
+	 */
+	public Category getCategory() {
+		return category;
+	}
+
+	/**
+	 * @param category
+	 *            the category to set
+	 */
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	/**
+	 * @return the skillLevel
+	 */
+	public int getSkillLevel() {
+		return skillLevel;
+	}
+
+	/**
+	 * @param skillLevel
+	 *            the skillLevel to set
+	 */
+	public void setSkillLevel(int skillLevel) {
+		this.skillLevel = skillLevel;
+	}
+
 }
