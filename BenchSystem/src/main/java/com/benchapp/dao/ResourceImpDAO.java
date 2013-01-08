@@ -35,7 +35,7 @@ public class ResourceImpDAO extends GenericImplDao<Resources> implements Resourc
 	@SuppressWarnings("unchecked")
 	@Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
 	@Override
-	public List<Resources> GetResourcesOnTheBench(String limitDate)
+	public List<Resources> GetResourcesOnTheBench(String limitDate, String dc, int area)
 			throws HibernateException{
 		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 		Date fecha = null;
@@ -45,7 +45,7 @@ public class ResourceImpDAO extends GenericImplDao<Resources> implements Resourc
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return sessionFactory.getCurrentSession().getNamedQuery("GetResourcesOnTheBench").setDate("limitDate", fecha).list();
+		return sessionFactory.getCurrentSession().getNamedQuery("GetResourcesOnTheBench").setDate("limitDate", fecha).setString("developmentC", dc).setInteger("area", area).list();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -53,6 +53,6 @@ public class ResourceImpDAO extends GenericImplDao<Resources> implements Resourc
 	@Override
 	public List<Resources> GetResourcesOnTheBench()
 			throws HibernateException{
-			return sessionFactory.getCurrentSession().getNamedQuery("GetResourcesOnTheBench").setDate("limitDate", new Date()).list();
+			return sessionFactory.getCurrentSession().getNamedQuery("GetResourcesOnTheBench").setDate("limitDate", new Date()).setString("developmentC", "").setInteger("area", 0).list();
 	}
 }

@@ -66,9 +66,9 @@ public class ResourceController {
 		return "ResourcePage";
 	}
 	@RequestMapping(value = "/search",method = RequestMethod.POST)
-	public String Search(@RequestParam("LimitDate") String limitDate, ModelMap model) {
+	public String Search(@RequestParam("LimitDate") String limitDate,@RequestParam("DevelopmentCenter") String dc, @RequestParam("Area") int area, ModelMap model) {
 		model.addAttribute("resourceForm",new ResourceView(new Date(),developmentCenterDAO.AvanticaDevelopmentCenter(), areaDAO.getAll("Area")));
-		model.addAttribute("resources",resourceDAO.GetResourcesOnTheBench(limitDate));
+		model.addAttribute("resources",resourceDAO.GetResourcesOnTheBench(limitDate,dc,area));
 		System.out.print(limitDate);
 		return "ResourcePage";
 	}

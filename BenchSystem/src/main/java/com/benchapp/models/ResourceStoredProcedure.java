@@ -19,7 +19,7 @@ import javax.persistence.Table;
  */
 @SuppressWarnings("serial")
 @Entity
-@NamedNativeQueries({@NamedNativeQuery(name="GetResourcesOnTheBench", query="EXEC GetResourcesOnTheBench :limitDate", resultClass = ResourceStoredProcedure.class)})
+@NamedNativeQueries({@NamedNativeQuery(name="GetResourcesOnTheBench", query="EXEC GetResourcesOnTheBench :limitDate, :developmentC, :area", resultClass = ResourceStoredProcedure.class)})
 @Table(name = "colaborador")
 public class ResourceStoredProcedure implements Serializable, Model{
 	
@@ -41,6 +41,33 @@ public class ResourceStoredProcedure implements Serializable, Model{
 	
 	@Column(name="EnglishLevel")
 	private String englishLevel;
+	
+	@Column(name="skills")
+	private String skills;
+	/**
+	 * @return the idColabolarador
+	 */
+	public int getIdColabolarador() {
+		return idColabolarador;
+	}
+	/**
+	 * @param idColabolarador the idColabolarador to set
+	 */
+	public void setIdColabolarador(int idColabolarador) {
+		this.idColabolarador = idColabolarador;
+	}
+	/**
+	 * @return the skills
+	 */
+	public String getSkills() {
+		return skills;
+	}
+	/**
+	 * @param skills the skills to set
+	 */
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
 	/**
 	 * @return the name
 	 */
