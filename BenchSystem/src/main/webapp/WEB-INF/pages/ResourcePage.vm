@@ -17,7 +17,7 @@
           <!-- Text input-->
           <label class="control-label" for="input01">Disponibility Date</label>
           <div class="controls">
-            <input type="date" class="input-xlarge">
+            <input type="date" name="LimitDate" id="LimitDate" class="input-xlarge">
           </div>
         </div>
 <br>
@@ -61,16 +61,19 @@
 	<thead style="background:#4b5bf6">
 		<tr >
 			<td >
-				Id
-            </td>
-			<td >
 				Name
             </td>
             <td >
 				Location
             </td>
             <td >
-				Position
+				%
+            </td>
+			<td >
+				Fecha
+            </td>
+			<td >
+				Level
             </td>
         </tr>
     </thead>
@@ -78,16 +81,19 @@
 		#foreach($resource in $resources)
 			<tr >
 			<td >
-				$resource.getResourceId()
-            </td>
-			<td >
 				$resource.getName()
             </td>
             <td >
 				$resource.getLocation()
             </td>
             <td >
-				$resource.getIdPosition()
+				$resource.getPercent()
+            </td>
+			<td >
+				$resource.getFinishDate()
+            </td>
+			<td >
+				$resource.getEnglishLevel()
             </td>
         </tr>      
         
@@ -101,4 +107,5 @@
 </div>
 </table>
 </form>
+
 
