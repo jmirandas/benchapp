@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 /**
  * @author eduardo.bran
- *
+ *	Model that represent the data of the store procedure "GetResourcesOnTheBench"
  */
 @SuppressWarnings("serial")
 @Entity
@@ -44,6 +44,21 @@ public class ResourceStoredProcedure implements Serializable, Model{
 	
 	@Column(name="skills")
 	private String skills;
+	
+	@Column(name="Estado")
+	private String status;
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	/**
 	 * @return the idColabolarador
 	 */

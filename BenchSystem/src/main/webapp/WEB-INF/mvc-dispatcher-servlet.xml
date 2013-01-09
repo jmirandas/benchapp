@@ -30,8 +30,11 @@
 
 	<!-- Configures the annotation-driven Spring MVC Controller programming 
 		model. Note that, with Spring 3.0, this tag works in Servlet MVC only! -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven conversion-service="conversionService"/>
 
+	<!-- Format Convert -->
+	<bean id="conversionService"
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
 	<!-- Creates the JSR-303 Validator -->
 	<bean id="validation"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />

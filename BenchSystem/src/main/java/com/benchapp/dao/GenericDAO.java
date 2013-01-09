@@ -11,7 +11,7 @@ import com.benchapp.models.Model;
 
 /**
  * @author esteban.guevara
- *
+ * GenericDAO That contain all common method
  */
 public interface GenericDAO<T extends Model> {
 

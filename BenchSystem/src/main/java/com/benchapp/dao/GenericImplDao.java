@@ -9,7 +9,6 @@ import javax.annotation.Resource;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +16,7 @@ import com.benchapp.models.Model;
 
 /**
  * @author esteban.guevara
- * 
+ * Implement GenericDAO Method
  */
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class GenericImplDao<T extends Model> implements GenericDAO<T> {
