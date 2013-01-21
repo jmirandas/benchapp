@@ -25,6 +25,7 @@ import com.benchapp.models.Resources;
 public class ResourceImpDAO extends GenericImplDao<Resources> implements ResourceDAO{	
 	
 	@SuppressWarnings("unchecked")
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.REQUIRED,readOnly = true)
 	@Override
 	public List<Resources> Search(String dc, int area)
@@ -37,6 +38,12 @@ public class ResourceImpDAO extends GenericImplDao<Resources> implements Resourc
 	@Override
 	public List<Resources> GetResourcesOnTheBench(String limitDate, String dc, int area)
 			throws HibernateException{
+=======
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	//@Override
+	public List<Resources> GetResourcesOnTheBench(String limitDate, String dc,
+			int area) throws HibernateException {
+>>>>>>> configuracion incompleta
 		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 		Date fecha = null;
 		try {
@@ -49,10 +56,20 @@ public class ResourceImpDAO extends GenericImplDao<Resources> implements Resourc
 	}
 	
 	@SuppressWarnings("unchecked")
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
 	@Override
 	public List<Resources> GetResourcesOnTheBench()
 			throws HibernateException{
 			return sessionFactory.getCurrentSession().getNamedQuery("GetResourcesOnTheBench").setDate("limitDate", new Date()).setString("developmentC", "").setInteger("area", 0).list();
+=======
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	//@Override
+	public List<Resources> GetResourcesOnTheBench() throws HibernateException {
+		return sessionFactory.getCurrentSession()
+				.getNamedQuery("GetResourcesOnTheBench")
+				.setDate("limitDate", new Date()).setString("developmentC", "")
+				.setInteger("area", 0).list();
+>>>>>>> configuracion incompleta
 	}
 }

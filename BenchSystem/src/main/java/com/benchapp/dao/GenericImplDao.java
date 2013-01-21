@@ -31,9 +31,17 @@ public class GenericImplDao<T extends Model> implements GenericDAO<T> {
 	 */
 	
 	@SuppressWarnings("unchecked")
+<<<<<<< HEAD
 	@Override
 	public List<T> getAll(String ClassName)throws HibernateException {
 		return sessionFactory.getCurrentSession().createQuery("FROM " + ClassName).list();
+=======
+	//@Override
+	public List<T> getAll(String ClassName) throws HibernateException {	
+
+		return sessionFactory.getCurrentSession()
+				.createQuery("FROM " + ClassName).list();
+>>>>>>> configuracion incompleta
 	}
 
 	/**

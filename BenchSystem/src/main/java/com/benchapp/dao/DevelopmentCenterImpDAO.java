@@ -24,8 +24,13 @@ public class DevelopmentCenterImpDAO extends GenericImplDao<DevelopmentCenter> i
 	
 	@SuppressWarnings("unchecked")
 	@Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
+<<<<<<< HEAD
 	@Override
 	public List<DevelopmentCenter> AvanticaDevelopmentCenter()
+=======
+	//@Override
+	public Map<String,String> AvanticaDevelopmentCenter()
+>>>>>>> configuracion incompleta
 			throws HibernateException {
 		return sessionFactory.getCurrentSession().createQuery("FROM DevelopmentCenter dv WHERE dv.compania = 'AVANTICA'").list();
 	}
