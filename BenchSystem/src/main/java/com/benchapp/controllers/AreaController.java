@@ -15,23 +15,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.benchapp.dao.DevelopmentCenterDAO;
+import com.benchapp.dao.AreaDAO;
+
 /**
- * @author eduardo.bran
+ * @author esteban.guevara
  *
  */
-
 @Controller
-@RequestMapping("/DevelopmentCenter/")
-public class DevelopmentCenterController {
-
-	@Resource(name = "developmentCenterImplDAO")
-	private DevelopmentCenterDAO developmentCenterDAO;
-
+@RequestMapping("/Area/")
+public class AreaController {
+	
+	@Resource(name = "areaImplDAO")
+	private AreaDAO areaDAO;
 	@RequestMapping(value="List",method = RequestMethod.GET, produces = "application/json")
 	@ResponseStatus(value = HttpStatus.NOT_FOUND)
 	@ExceptionHandler(NullPointerException.class)
 	public @ResponseBody Map<String, String> ListDC(NullPointerException nullPointer)  {
-		return developmentCenterDAO.AvanticaDevelopmentCenter();
+		return areaDAO.getMapArea();
 	}
 }

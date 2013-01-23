@@ -7,6 +7,8 @@ package com.benchapp.controllers;
  * @author eduardo.bran
  *
  */
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -21,13 +23,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.benchapp.dao.AreaDAO;
 import com.benchapp.dao.DevelopmentCenterDAO;
 import com.benchapp.dao.ResourceDAO;
+import com.benchapp.models.Area;
+import com.benchapp.models.FormList;
 import com.benchapp.models.ResourceView;
 
 
 @Controller
 @RequestMapping("/")
 public class ResourceController {
-
 	/**
 	 * Inject ResourceDAO from com.benchapp.dao
 	 */
@@ -67,15 +70,37 @@ public class ResourceController {
 		model.addAttribute("centers", developmentCenterDAO.AvanticaDevelopmentCenter());
 		model.addAttribute("areas", areaDAO.getMapArea());
 		model.addAttribute("resources",resourceDAO.GetResourcesOnTheBench(resourceView.getLimitDate(),resourceView.getCenter(),resourceView.getArea()));
+		System.out.println(resourceView.toString());
 		return "ResourcePage";
 	}
-	/**
-	 * show the profile details about the resource by id
-	 */
-	@RequestMapping(value = "/ResourceProfile/{id}",method = RequestMethod.GET)
-	public 	String ResourceProfile(@PathVariable int id, ModelMap model)
+	@RequestMapping(value="/ResourceProfile/{id}",method = RequestMethod.GET)
+	public String ResourceProfile(@PathVariable("id") int id,ModelMap model)
 	{
 		model.addAttribute("id",id);
 		return "ResourceProfile";
+	}
+	@RequestMapping(value="/List",method = RequestMethod.GET)
+	public String ResourceProfile(ModelMap model)
+	{
+		FormList form = new FormList();
+		List<Area> areas =new LinkedList<Area>();
+		areas.add(new Area(1,"guana","lol"));
+		areas.add(new Area(2,"chepe","troll"));
+		form.setAreas(areas);
+		model.addAttribute("areas",form);
+		return "Lista";
+	}
+	@RequestMapping(value = "/PostList",method = RequestMethod.POST)
+	public String PostList(@ModelAttribute("resourceForm")FormList list, ModelMap model, BindingResult result) {
+		if(result.hasErrors())
+		{
+			return "redirect:/";
+		}
+		for (Area area : list.getAreas()) {
+			System.out.println("id: " + area.getPositionId());
+			System.out.println("name: " + area.getName());
+			System.out.println("status: " + area.getStatus());
+		}
+		return "ResourcePage";
 	}
 }

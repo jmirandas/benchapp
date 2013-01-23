@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="SessionHibernate">
+  <property name="hibernate.connection.url">jdbc:sqlserver://JMIRANDA-LIB:1433;databaseName=ResourceManagerCentral;Integrated Security=true;</property>
+  <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+  <property name="hibernate.connection.datasource">com.mchange.v2.c3p0.ComboPooledDataSource</property>
+  <property name="hibernate.connection.provider_class">org.hibernate.conection.C3P0ConnectionProvider</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+  <property name="hibernate.transaction.factory_class">org.springframework.orm.hibernate3.HibernateTransactionManager</property>
+  <property name="hibernate.transaction.auto_close_session">false</property>
+  <property name="hibernate.connection.username">testUser</property>
+  <property name="hibernate.connection.password">Abc123</property>
+  <property name="show_sql">false</property>
+  <property name="hbm2ddl.auto">update</property>
+  <property name="hibernate.show_sql">false</property>
+  <property name="hibernate.use_sql_comments">false</property>
+  <property name="hibernate.hbm2ddl.auto">update</property>
+  <property name="hibernate.session_factory_name">SessionFactory</property>
+  <property name="hibernate.c3p0.acquire_increment">1</property>
+  <property name="hibernate.c3p0.idle_test_period">3</property>
+  <property name="hibernate.c3p0.min_size">10</property>
+  <property name="hibernate.c3p0.max_size">100</property>
+  <property name="hibernate.c3p0.max_statements">50</property>
+  <property name="hibernate.c3p0.timeout">30</property>
+ </session-factory>
+</hibernate-configuration>

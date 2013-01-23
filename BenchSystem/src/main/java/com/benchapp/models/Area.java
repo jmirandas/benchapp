@@ -28,6 +28,25 @@ public class Area implements Model{
 	private String status;
 
 	/**
+	 * @param positionId
+	 * @param name
+	 * @param status
+	 */
+	public Area(int positionId, String name, String status) {
+		super();
+		this.positionId = positionId;
+		this.name = name;
+		this.status = status;
+	}
+	
+	public Area() {
+		super();
+		this.positionId = 0;
+		this.name = null;
+		this.status = null;
+	}
+
+	/**
 	 * @return the positionId
 	 */
 	public int getPositionId() {
