@@ -26,12 +26,12 @@ public class DevelopmentCenterImpDAO extends GenericImplDao<DevelopmentCenter> i
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.SUPPORTS,readOnly = true)
-	@Override
+
 	public Map<String,String> AvanticaDevelopmentCenter()
 			throws HibernateException {
 		Map<String,String> mapCenters = new HashMap<String, String>();
 		List<DevelopmentCenter> centers = (List<DevelopmentCenter>) sessionFactory.getCurrentSession().createQuery("FROM DevelopmentCenter dv WHERE dv.compania = 'AVANTICA'").list();
-		mapCenters.put("","-- All --");
+		mapCenters.put("All","-- All --");
 		sessionFactory.getCurrentSession();
 		for(DevelopmentCenter developmentCenter : centers)
 		{

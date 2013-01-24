@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +21,7 @@ import com.benchapp.dao.DevelopmentCenterDAO;
  *
  */
 
-@Controller
+@Service
 @RequestMapping("/DevelopmentCenter/")
 public class DevelopmentCenterController {
 
