@@ -5,12 +5,28 @@
 <script type="text/javascript" src="/BenchSystem/resource/plugins/tipped-3.1.3/js/tipped.js"></script>
 <script type="text/javascript" src="/BenchSystem/resource/plugins/dataTables-1.9.4/js/jquery.dataTables.min.1.9.4.js"></script>
 <script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
-    	$('.dataTable').dataTable();
-    });
-    function ShowToolTip(){
-       Tipped.create(".skillsToolTip",{maxWidth: 600, hook: 'leftmiddle'});
-       Tipped.create(".commentToolTip",{skin: 'green', maxWidth: 600});
+   $j(document).ready(function() {
+        jQuery('.dataTable').dataTable();
+        jQuery.ajax({ 
+        type: "GET",
+        contentType: "text/json; charset=utf-8",
+        dataType: "json",
+        url: "http://eguevara-lib:8080/BenchSystem/Resource/List",
+        success: function(msg){
+        alert(msg[0].location);
+        },
+        error: function(xhr,status,error) {
+        alert(error);
+        alert(status);
+        },
+        complete: function(xhr,status){
+        }
+        }); 
+        });
+  
+     function ShowToolTip(){
+        Tipped.create(".skillsToolTip",{maxWidth: 600, hook: 'leftmiddle'});
+        Tipped.create(".commentToolTip",{skin: 'green', maxWidth: 600});
     }
 </script>
 <form action="search" method="POST" class="form-horizontal">

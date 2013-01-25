@@ -13,9 +13,9 @@
 
 	<!-- Activates various annotations to be detected in bean classes -->
 	<context:annotation-config />
-	<context:component-scan base-package="com.benchapp">
-		<context:include-filter type="annotation"
-			expression="org.springframework.stereotype.Repository" />
+	<context:component-scan base-package="com.benchapp, com.benchapp.rest">
+		<!-- <context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Component" /> -->
 	</context:component-scan> 
 
 	<mvc:resources location="/resource/" mapping="/resource/**" />
