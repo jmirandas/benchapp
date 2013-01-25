@@ -28,7 +28,7 @@ import com.benchapp.models.FormList;
 import com.benchapp.models.ResourceView;
 
 
-@Controller("resourceController")
+@Controller
 @RequestMapping("/")
 public class ResourceController {
 	/**

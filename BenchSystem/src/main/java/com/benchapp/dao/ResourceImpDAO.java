@@ -17,6 +17,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.benchapp.models.ResourceStoredProcedure;
 import com.benchapp.models.Resources;
 
 @Repository("resourceImplDAO")
@@ -26,8 +27,7 @@ public class ResourceImpDAO extends GenericImplDao<Resources> implements Resourc
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	
-	public List<Resources> GetResourcesOnTheBench(String limitDate, String dc,
+	public List<ResourceStoredProcedure> GetResourcesOnTheBench(String limitDate, String dc,
 			int area) throws HibernateException {
 		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 		Date fecha = null;
@@ -46,8 +46,7 @@ public class ResourceImpDAO extends GenericImplDao<Resources> implements Resourc
 	 */
 	@SuppressWarnings("unchecked")
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	
-	public List<Resources> GetResourcesOnTheBench() throws HibernateException {
+	public List<ResourceStoredProcedure> GetResourcesOnTheBench() throws HibernateException {
 		return sessionFactory.getCurrentSession()
 				.getNamedQuery("GetResourcesOnTheBench")
 				.setDate("limitDate", new Date()).setString("developmentC", "")

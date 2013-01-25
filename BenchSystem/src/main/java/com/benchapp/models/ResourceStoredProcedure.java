@@ -13,6 +13,8 @@ import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 /**
  * @author eduardo.bran
  *	Model that represent the data of the store procedure "GetResourcesOnTheBench"
@@ -50,6 +52,7 @@ public class ResourceStoredProcedure implements Serializable, Model{
 	/**
 	 * @return the status
 	 */
+	@JsonProperty("3")
 	public String getStatus() {
 		return status;
 	}
@@ -62,6 +65,7 @@ public class ResourceStoredProcedure implements Serializable, Model{
 	/**
 	 * @return the idColabolarador
 	 */
+	@JsonProperty("5")
 	public int getIdColabolarador() {
 		return idColabolarador;
 	}
@@ -74,6 +78,7 @@ public class ResourceStoredProcedure implements Serializable, Model{
 	/**
 	 * @return the skills
 	 */
+	@JsonProperty("4")
 	public String getSkills() {
 		return skills;
 	}
@@ -86,6 +91,7 @@ public class ResourceStoredProcedure implements Serializable, Model{
 	/**
 	 * @return the name
 	 */
+	@JsonProperty("0")
 	public String getName() {
 		return name;
 	}
@@ -98,6 +104,7 @@ public class ResourceStoredProcedure implements Serializable, Model{
 	/**
 	 * @return the location
 	 */
+	@JsonProperty("1")
 	public String getLocation() {
 		return location;
 	}
@@ -110,6 +117,7 @@ public class ResourceStoredProcedure implements Serializable, Model{
 	/**
 	 * @return the percent
 	 */
+	@JsonProperty("2")
 	public int getPercent() {
 		return percent;
 	}
@@ -122,6 +130,7 @@ public class ResourceStoredProcedure implements Serializable, Model{
 	/**
 	 * @return the finishDate
 	 */
+	@JsonProperty("6")
 	public Date getFinishDate() {
 		return finishDate;
 	}
@@ -134,6 +143,7 @@ public class ResourceStoredProcedure implements Serializable, Model{
 	/**
 	 * @return the englishLevel
 	 */
+	@JsonProperty("7")
 	public String getEnglishLevel() {
 		return englishLevel;
 	}
