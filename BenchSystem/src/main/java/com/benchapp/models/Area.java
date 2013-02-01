@@ -4,10 +4,9 @@
 package com.benchapp.models;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author eduardo.bran
@@ -27,6 +26,25 @@ public class Area implements Model{
 	
 	@Column(name = "estado")
 	private String status;
+
+	/**
+	 * @param positionId
+	 * @param name
+	 * @param status
+	 */
+	public Area(int positionId, String name, String status) {
+		super();
+		this.positionId = positionId;
+		this.name = name;
+		this.status = status;
+	}
+	
+	public Area() {
+		super();
+		this.positionId = 0;
+		this.name = null;
+		this.status = null;
+	}
 
 	/**
 	 * @return the positionId

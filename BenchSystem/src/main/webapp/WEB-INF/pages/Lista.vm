@@ -1,9 +1,41 @@
-Nombre:
-<select name="select">
-#foreach($dev in $developmentCenter)
-  <option value=$dev.nombre>${dev.nombre}</option> 
-#end
-</select>
+<style type="text/css" title="currentStyle">
+    @import "/BenchSystem/resource/plugins/dataTables-1.9.4/css/dataTable.css";
+</style>
 
-$developmentCenter
-
+<script type="text/javascript" src="/BenchSystem/resource/plugins/dataTables-1.9.4/js/jquery.dataTables.min.1.9.4.js"></script>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+    	$('.dataTable').dataTable();
+    });
+    function ShowToolTip(){
+       Tipped.create(".skillsToolTip",{maxWidth: 600, hook: 'leftmiddle'});
+       Tipped.create(".commentToolTip",{skin: 'green', maxWidth: 600});
+    }
+</script>
+<form action="PostList" method="POST" class="form-horizontal">
+	<table  cellpadding="0" cellspacing="0" border="0" class="display dataTable">
+        <thead>
+            <tr class="gradeU">
+                <th>id</th>
+                <th>name</th>
+				<th>status</th>
+            </tr>
+        </thead>
+        <tbody>
+			#foreach($area in $areas.areas)
+			<tr >
+				$foreach.index<br\> $foreach.count
+                <td><input type="text" name="areas[$foreach.index].positionId" value="${area.positionId}" class="input-xlarge" /></td>
+                <td><input type="text" name="areas[$foreach.index].name" value="${area.name}" class="input-xlarge" /></td>
+				<td><input type="text" name="areas[$foreach.index].status" value="${area.status}" class="input-xlarge" /></td>
+            </tr>
+			#end
+        </tbody>
+    </table>
+	<div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+            <input type="submit" value="Send" class="btn btn-success" />
+        </div>
+    </div>
+</form>

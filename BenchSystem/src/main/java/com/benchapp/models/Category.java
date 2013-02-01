@@ -4,9 +4,7 @@
 package com.benchapp.models;
 
 import javax.persistence.Column;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,8 +21,6 @@ public class Category {
 	@Column(name = "")
 	private String name;
 
-	@OneToMany(fetch = FetchType.EAGER)
-	private Skill skill;
 
 	/**
 	 * @return the idCategory

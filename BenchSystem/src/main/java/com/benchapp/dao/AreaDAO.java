@@ -3,6 +3,10 @@
  */
 package com.benchapp.dao;
 
+import java.util.List;
+
+import org.hibernate.HibernateException;
+
 import com.benchapp.models.Area;
 
 /**
@@ -10,4 +14,5 @@ import com.benchapp.models.Area;
  *
  */
 public interface AreaDAO extends GenericDAO<Area>{
+	public List<Area> getMapArea() throws HibernateException;
 }
