@@ -23,7 +23,7 @@ public class AreaImpDAO  extends GenericImplDao<Area> implements AreaDAO{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Area> getMapArea() throws HibernateException {
-		List<Area> areas = (List<Area>) sessionFactory.getCurrentSession().createQuery("FROM Area").list();
+		List<Area> areas = (List<Area>) sessionFactory.getCurrentSession().createQuery("FROM Area order by codExactus").list();
 		return areas;
 	}
 }

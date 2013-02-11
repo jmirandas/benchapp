@@ -26,17 +26,21 @@ public class Area implements Model{
 	
 	@Column(name = "estado")
 	private String status;
-
+	
+	@Column(name = "codExactus")
+	private String codExactus;
+	
 	/**
 	 * @param positionId
 	 * @param name
 	 * @param status
 	 */
-	public Area(int positionId, String name, String status) {
+	public Area(int positionId, String name, String status, String codExactus) {
 		super();
 		this.positionId = positionId;
 		this.name = name;
 		this.status = status;
+		this.codExactus = codExactus;
 	}
 	
 	public Area() {
@@ -44,6 +48,7 @@ public class Area implements Model{
 		this.positionId = 0;
 		this.name = null;
 		this.status = null;
+		this.codExactus = null;
 	}
 
 	/**
@@ -86,6 +91,20 @@ public class Area implements Model{
 	 */
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	/**
+	 * @return the codExactus
+	 */
+	public String getCodExactus() {
+		return codExactus;
+	}
+
+	/**
+	 * @param codExactus the codExactus to set
+	 */
+	public void setCodExactus(String codExactus) {
+		this.codExactus = codExactus;
 	}
 
 }

@@ -84,8 +84,6 @@ public class ResourceController {
 	{
 		FormList form = new FormList();
 		List<Area> areas =new LinkedList<Area>();
-		areas.add(new Area(1,"guana","lol"));
-		areas.add(new Area(2,"chepe","troll"));
 		form.setAreas(areas);
 		model.addAttribute("areas",form);
 		return "Lista";

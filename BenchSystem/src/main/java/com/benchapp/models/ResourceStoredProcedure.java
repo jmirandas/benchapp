@@ -4,7 +4,6 @@
 package com.benchapp.models;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,7 +39,7 @@ public class ResourceStoredProcedure implements Serializable, Model {
 	private int percent;
 
 	@Column(name = "fechaSalida")
-	private Date finishDate;
+	private String finishDate;
 
 	@Column(name = "EnglishLevel")
 	private String englishLevel;
@@ -51,17 +50,26 @@ public class ResourceStoredProcedure implements Serializable, Model {
 	@Column(name = "Estado")
 	private String status;
 	
-	@Transient
-	private final String imageHTML = "<img alt='More details' title='More details' src='/includes/panels/issue/resource/plugins/dataTables-1.9.4/images/details_open.png' />";
+	@Column(name = "Posicion")
+	private String position;
+	
+	@Column(name = "idParametro")
+	private String englishLevelId;
+	
+	@Column(name = "codPosicion")
+	private String positionId;
 	
 	@Transient
-	private final String botonHTML = "<input type='submit' value='Accept' class='add' title='Add' alt='Add' onclick='agregar()' />";
+	private final String imageHTML = "imageHTML";
+	
+	@Transient
+	private final String botonHTML = "botonHTML";
 	
 
 	/**
 	 * @return the botonHTML
 	 */
-	@JsonProperty("9")
+	@JsonProperty("12")
 	public String getBotonHTML() {
 		return botonHTML;
 	}
@@ -174,15 +182,18 @@ public class ResourceStoredProcedure implements Serializable, Model {
 	 * @return the finishDate
 	 */
 	@JsonProperty("4")
-	public Date getFinishDate() {
+	public String getFinishDate() {
+		if (finishDate==null)
 		return finishDate;
+		else
+		return finishDate.substring(0,10);
 	}
 
 	/**
 	 * @param finishDate
 	 *            the finishDate to set
 	 */
-	public void setFinishDate(Date finishDate) {
+	public void setFinishDate(String finishDate) {
 		this.finishDate = finishDate;
 	}
 
@@ -200,6 +211,51 @@ public class ResourceStoredProcedure implements Serializable, Model {
 	 */
 	public void setEnglishLevel(String englishLevel) {
 		this.englishLevel = englishLevel;
+	}
+
+	/**
+	 * @return the position
+	 */
+	@JsonProperty("10")
+	public String getPosition() {
+		return position;
+	}
+
+	/**
+	 * @param position the position to set
+	 */
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
+	/**
+	 * @return the englishLevelId
+	 */
+	@JsonProperty("11")
+	public String getEnglishLevelId() {
+		return englishLevelId;
+	}
+
+	/**
+	 * @param englishLevelId the englishLevelId to set
+	 */
+	public void setEnglishLevelId(String englishLevelId) {
+		this.englishLevelId = englishLevelId;
+	}
+
+	/**
+	 * @return the positionId
+	 */
+	@JsonProperty("9")
+	public String getPositionId() {
+		return positionId;
+	}
+
+	/**
+	 * @param positionid the positionId to set
+	 */
+	public void setPositionId(String positionId) {
+		this.positionId = positionId;
 	}
 
 }
